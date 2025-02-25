@@ -1,0 +1,19 @@
+{
+  "name": "nse-option-pricing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build-backend": "cd backend && mkdir -p build && cd build && cmake .. && make",
+    "compile-backend": "cd backend && tsc",
+    "start-backend": "cd backend && ts-node server.ts",
+    "start-monte": "cd backend && ts-node monteCarloServer.ts",
+    "start-frontend": "cd frontend && npm install && npm run dev",
+    "start": "concurrently \"npm run build-backend && npm run compile-backend && npm run start-backend\" \"npm run start-frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
